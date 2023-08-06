@@ -25,3 +25,23 @@
 - git reset --mixed 커밋해쉬코드4자리 (커밋 로그가 바뀌고 변경 내용이 추가되지 않은 상태, 원본 내용은 그대로)
 - git reset --hard 커밋해쉬코드4자리 (커밋 로그와 원본 내용을 변경, 이전 커밋에 파일이 없다면 해당 파일은 삭제)
 - git reflog (여태 커밋한 로그를 변경 및 삭제없이 그대로 보여줌)
+
+### 깃 커밋 변경
+- git commit --amend -m "커밋메세지" (커밋된 메세지 내용을 변경)
+- git reset --soft 이전커밋해쉬코드4자리 -> git commit -m "커밋메세지" (위와 동일)
+- git rebase -i head~3 -> vi 에디터로 이동 -> i 입력 (입력모드) -> 변경할 로그 pick을 s로 수 -> esc -> :q (헤더를 기준으로 자신을 포함한 이전 3개의 커밋을 통합, 기준은 변경하는 내용중 가장 오래전에 만들어진 커밋)
+
+### branch
+- '가지'라는 뜻으로 원래 버전을 다루던 main branch에서 모종의 이유로 다른 개발을 해야할 경우 분기점을 두어서 main과 다른 branch를 두어 개발
+- git branch 브랜치이름 (해당 헤더 위치를 기준으로 분기점을 두어 새로운 브랜치 생성)
+- git checkout 브랜치이름 (해당 브랜치로 커밋되도록 헤더를 변경)
+- git checkout -b 브랜치이름 (브랜치 생성과 동시에 헤더 이동)
+- git merge 브랜치이름 (헤더가 가리키고 있는 브랜치로 해당 브랜치를 합침, 메인 브랜치에 별다른 변경이 없다면 fast forward merge, 변경이 있다면 3 wqy merge)
+- 같은 파일을 변경하여 머지 충돌시 합쳐진 내용을 대표가 처리해서 다시 커밋해야 함
+
+### 깃헙 연결
+- git remote add origin 깃헙프로젝트주소 (깃헙과 파일을 연결)
+- git ls-remote (깃헙 연결 주소 확인)
+- git push origin main (메인 브랜치에 파일 업로드)
+- git pull origin main (깃헙에 있는 파일 다운로드)
+- git clone 깃헙프로젝트주소 (init + remote + pull 합친거)
