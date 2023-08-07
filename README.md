@@ -36,7 +36,7 @@
 - git branch 브랜치이름 (해당 헤더 위치를 기준으로 분기점을 두어 새로운 브랜치 생성)
 - git checkout 브랜치이름 (해당 브랜치로 커밋되도록 헤더를 변경)
 - git checkout -b 브랜치이름 (브랜치 생성과 동시에 헤더 이동)
-- git merge 브랜치이름 (헤더가 가리키고 있는 브랜치로 해당 브랜치를 합침, 메인 브랜치에 별다른 변경이 없다면 fast forward merge, 변경이 있다면 3 wqy merge)
+- git merge 브랜치이름 (헤더가 가리키고 있는 브랜치로 해당 브랜치를 합침, 메인 브랜치에 별다른 변경이 없다면 fast forward merge, 변경이 있다면 3 way merge)
 - 같은 파일을 변경하여 머지 충돌시 합쳐진 내용을 대표가 처리해서 다시 커밋해야 함
 
 ### 깃헙 연결
@@ -44,4 +44,4 @@
 - git ls-remote (깃헙 연결 주소 확인)
 - git push origin main (메인 브랜치에 파일 업로드)
 - git pull origin main (깃헙에 있는 파일 다운로드)
-- git clone 깃헙프로젝트주소 (init + remote + pull 합친거)
+- git clone 깃헙프로젝트주소 (init + remote + pull)
