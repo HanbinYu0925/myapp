@@ -115,3 +115,17 @@ git pull origin main
 # init + remote + pull
 git clone 깃헙 프로젝트 주소
 ```
+
+### 깃헙에 push한 commit 변경
+- 깃헙에 노출되면 안되는 중요한 파일을 같이 올렸을 경우 해당 명령어 사용
+```shell
+# 파일명은 폴더가 아닌 특정 확장자를 가진 파일명을 입력 (ex. /config/importantConfig.yml)
+# 현재 진행사항도 삭제되므로 중요 파일은 따로 저장
+# 변경할 커밋 수가 많거나 변경할 파일 용량이 크면 변경되는데 시간이 걸릴 수도 있음
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch 파일명' --prune-empty --tag-name-filter cat -- --all
+
+# 중간 과정으로 gitignore을 사용해 해당 중요 파일을 커밋 대상에서 제외
+
+# 깃헙에 저장된 내용과 달라지므로 강제 push
+git push origin master --force
+```
